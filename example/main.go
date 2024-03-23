@@ -3,7 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"tg_updates_bot"
+
+	"github.com/AndreyFulov/tg_updates_bot"
 )
 
 var tgbotkey *string
