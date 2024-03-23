@@ -1,4 +1,4 @@
-module github.com/AndreyFulov/spworlds
+module github.com/AndreyFulov/tg_updates_bot
 
 go 1.22.1
 
