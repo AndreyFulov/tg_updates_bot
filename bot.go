@@ -1,6 +1,7 @@
 package tg_updates_bot
 
 import (
+	"fmt"
 	"log"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
@@ -48,6 +49,7 @@ func Bot(tgbotkey *string, tgchannel *int64, ch chan Response) {
 					response.PhotoURL = file.Link(*tgbotkey)
 					response.Text = update.ChannelPost.Caption
 				}
+				fmt.Println("New message from channel:", update.ChannelPost.Chat.ID)
 				ch <- *response
 			}
 		}
