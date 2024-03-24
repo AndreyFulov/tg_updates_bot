@@ -41,7 +41,7 @@ func Bot(tgbotkey *string, tgchannel *int64, ch chan Response) {
 				response := &Response{}
 				response.Text = update.ChannelPost.Text
 				if len(update.ChannelPost.Photo) != 0 {
-					file, err := bot.GetFile(tgbotapi.FileConfig{FileID: update.ChannelPost.Photo[0].FileID})
+					file, err := bot.GetFile(tgbotapi.FileConfig{FileID: update.ChannelPost.Photo[len(update.ChannelPost.Photo)-1].FileID})
 					if err != nil {
 						log.Fatal("Error! ")
 					}
