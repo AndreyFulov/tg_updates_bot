@@ -8,8 +8,9 @@ import (
 )
 
 type Response struct {
-	PhotoURL string
-	Text     string
+	PhotoURL    string
+	Text        string
+	ChannelName string
 }
 
 // For work we need a bot token and channel, where we send struct data, and if u want, u can set a TG channel id
@@ -48,6 +49,7 @@ func Bot(tgbotkey *string, tgchannel *int64, ch chan Response) {
 					}
 					response.PhotoURL = file.Link(*tgbotkey)
 					response.Text = update.ChannelPost.Caption
+					response.ChannelName = update.ChannelPost.Chat.Title
 				}
 				fmt.Println("New message from channel:", update.ChannelPost.Chat.ID)
 				ch <- *response
